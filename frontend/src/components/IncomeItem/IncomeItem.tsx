@@ -154,3 +154,6 @@ const IncomeItemStyled = styled.div<{ indicator: string }>`
 `;
 
 export default IncomeItem;
+
+
+

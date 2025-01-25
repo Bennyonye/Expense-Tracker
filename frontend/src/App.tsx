@@ -30,7 +30,7 @@ function App() {
     }
   }
 
-  const orbMemo = useMemo(() => {
+    const orbMemo = useMemo(() => {
     return <Orb />;
   }, []);
 
@@ -40,8 +40,8 @@ function App() {
       <MainLayout>
         <Navigation active={active} setActive={setActive} />
         <main>
-          {/* Dynamically render the component based on active state */}
-          {displayData()}
+           {/* Dynamically render the component based on active state */}
+           {displayData()}
         </main>
       </MainLayout>
     </AppStyled>
@@ -50,7 +50,7 @@ function App() {
 
 const AppStyled = styled.div<{ pic: string }>`
   height: 100vh;
-  background-image: url(${(props) => props.pic});
+  // background-image: url(${(props) => props.pic});
   background-size: cover;
   background-position: center;
   position: relative;

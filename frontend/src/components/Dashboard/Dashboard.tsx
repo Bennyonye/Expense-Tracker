@@ -1,13 +1,19 @@
 import styled from 'styled-components'
+import { InnerLayout } from '../../styles/Layouts';
+// import Chart from '../Chart/Chart';
 
 function Dashboard() {
 
     return (
         <DashboardStyled>
-                <h1>All Transactions</h1>
+            <InnerLayout>
+            <h1>All Transactions</h1>
                 <div className="stats-con">
-
+                <div className="chart-con">
+                    {/* <Chart /> */}
                 </div>
+                </div>
+            </InnerLayout>
         </DashboardStyled>
     )
 }

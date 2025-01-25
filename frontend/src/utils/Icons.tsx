@@ -49,6 +49,5 @@ export const financialIcons = {
   
   export const trendIcons = {
     trendingUp: <i className="fa-solid fa-money-bill-trend-up" aria-label="Trending Up Icon"></i>,
-    stocks: <i className="fa-solid fa-arrow-trend-up" aria-label="Stocks Icon"></i>,
-  };
-  
+    stocks: <i className="fa-solid fa-arrow-trend-up" aria-label="Stocks Icon"></i>, // Ensure this exists
+};
