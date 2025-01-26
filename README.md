@@ -151,7 +151,13 @@ frontend/
 
 ## Author
 1. Benedict Igbukolu
-   Github Acount: /Bennyonye
+      ```
+      Github Acount:
+      Bennyonye
+   ```
 2. Daniel Izevbije
-    Github Account:
+ ```
+   Githut Account:
+   quasar0x
+```
     
