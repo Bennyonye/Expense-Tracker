@@ -149,6 +149,9 @@ frontend/
 
 ---
 
-## License
-This project is licensed under the MIT License.
-
+## Author
+1. Benedict Igbukolu
+   Github Acount: /Bennyonye
+2. Daniel Izevbije
+    Github Account:
+    
