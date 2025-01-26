@@ -1,75 +1,3 @@
-// import styled from "styled-components";
-// import { useGlobalContext } from "../../context/globalContext";
-// import { InnerLayout } from "../../styles/Layouts";
-// import Form from "../Form/Form";
-// import { useEffect } from "react";
-
-// function Income() {
-//   const { addincome, incomes, getIncomes } = useGlobalContext();
-
-//   useEffect(() => {
-//     getIncomes()
-//   },[])
-//   return (
-//     <IncomeStyled>
-//       <InnerLayout>
-//         <h1>Incomes</h1>
-//         <h2 className="total-income">
-//           Total Income:
-//         </h2>
-//         <div className="income-content">
-//           <div className="form-container">
-//             <Form />
-//           </div>
-//           <div className="incomes">
-
-//           </div>
-//         </div>
-//       </InnerLayout>
-//     </IncomeStyled>
-//   );
-// };
-
-// const IncomeStyled = styled.div`
-//   display: flex;
-//   overflow: auto;
-
-//   .total-income {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     background: #fcf6f9;
-//     border: 2px solid #ffffff;
-//     box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
-//     border-radius: 20px;
-//     padding: 1rem;
-//     margin: 1rem 0;
-//     font-size: 2rem;
-//     gap: 0.5rem;
-
-//     span {
-//       font-size: 2.5rem;
-//       font-weight: 800;
-//       color: var(--color-green);
-//     }
-//   }
-
-//   .income-content {
-//     display: flex;
-//     gap: 2rem;
-
-//     .incomes {
-//       flex: 1;
-//     }
-//   }
-// `;
-
-// export default Income;
-
-
-
-
-
 import styled from "styled-components";
 import { InnerLayout } from "../../styles/Layouts";
 import { useGlobalContext } from "../../context/globalContext";
@@ -78,7 +6,7 @@ import { useEffect } from "react";
 import IncomeItem from "../IncomeItem/IncomeItem";
 
 function Income(){
-    const {addIncome, incomes, getIncomes, deleteIncome} = useGlobalContext()
+    const {addIncome, incomes, getIncomes, deleteIncome, totalIncome} = useGlobalContext()
 
     useEffect(() =>{
       getIncomes()
@@ -87,9 +15,8 @@ function Income(){
     <IncomeStyled>
       <InnerLayout>
         <h1>Incomes</h1>
-
         <h2 className="total-income">
-          Total Income:
+          Total Income: <span>{totalIncome}</span> 
         </h2>
         <div className="income-content">
           <div className="form-container">

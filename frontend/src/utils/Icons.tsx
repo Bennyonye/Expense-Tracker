@@ -10,6 +10,30 @@ export const plus: JSX.Element = (
   </svg>
 );
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faGraduationCap,
+  faShoppingBasket,
+  faBriefcaseMedical,
+  faNewspaper,
+  faUtensils,
+  faTshirt,
+  faPlane,
+  faEllipsisH,
+} from "@fortawesome/free-solid-svg-icons";
+
+export const expenseCategoryIcons = {
+  education: <FontAwesomeIcon icon={faGraduationCap} />,
+  groceries: <FontAwesomeIcon icon={faShoppingBasket} />,
+  health: <FontAwesomeIcon icon={faBriefcaseMedical} />,
+  subscriptions: <FontAwesomeIcon icon={faNewspaper} />,
+  takeaways: <FontAwesomeIcon icon={faUtensils} />,
+  clothing: <FontAwesomeIcon icon={faTshirt} />,
+  travelling: <FontAwesomeIcon icon={faPlane} />,
+  other: <FontAwesomeIcon icon={faEllipsisH} />,
+};
+
+
 
 export const financialIcons = {
     dashboard: <i className="fa-solid fa-chart-line" aria-label="Dashboard Icon"></i>,
@@ -23,6 +47,7 @@ export const financialIcons = {
     piggyBank: <i className="fa-solid fa-piggy-bank" aria-label="Piggy Bank Icon"></i>,
     card: <i className="fa-solid fa-credit-card" aria-label="Card Icon"></i>,
   };
+  
   
   export const socialIcons = {
     freelance: <i className="fa-solid fa-earth-americas" aria-label="Freelance Icon"></i>,

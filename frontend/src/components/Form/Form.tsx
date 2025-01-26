@@ -14,7 +14,7 @@ interface InputState {
 }
 
 function Form() {
-  const { addIncome, error, setError, clearError } = useGlobalContext(); // Now using setError
+  const { addIncome, getIncomes, error, setError, clearError } = useGlobalContext(); // Now using setError
   const [inputState, setInputState] = useState<InputState>({
     title: "",
     amount: "",
@@ -34,7 +34,7 @@ function Form() {
       clearError(); // Clears error when user starts typing
     };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     // Validation example
@@ -56,19 +56,31 @@ function Form() {
       description,
     };
 
-    console.log("Payload:", payload);
-
-    // Call addIncome and reset form fields
-    addIncome(payload);
-    setInputState({
-      title: "",
-      amount: "",
-      date: null,
-      category: "",
-      description: "",
-    });
+    try {
+      console.log("Payload:", payload);
+  
+      // Call addIncome and wait for it to complete
+      await addIncome(payload);
+  
+      // Fetch incomes after successfully adding a new one
+      await getIncomes();
+  
+      // Reset form fields after a successful operation
+      setInputState({
+        title: "",
+        amount: "",
+        date: null,
+        category: "",
+        description: "",
+      });
+  
+      clearError(); // Clear errors if everything was successful
+    } catch (err) {
+      console.error("Error in handleSubmit:", err);
+      setError("An error occurred while adding the income. Please try again."); // Handle any unexpected errors
+    }
   };
-
+  
   return (
     <FormStyled onSubmit={handleSubmit}>
       {error && <p className="error">{error}</p>} {/* Display error if present */}

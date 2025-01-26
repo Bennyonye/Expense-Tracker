@@ -1,17 +1,73 @@
+import { useEffect } from 'react';
 import styled from 'styled-components'
 import { InnerLayout } from '../../styles/Layouts';
-// import Chart from '../Chart/Chart';
+import Chart from '../Chart/Chart';
+import { financialIcons } from '../../utils/Icons';
+import { useGlobalContext } from '../../context/globalContext';
+import History from '../History/History';
 
 function Dashboard() {
+    const {totalIncome, totalExpense, totalBalance, incomes, expenses, getIncomes, getExpenses} = useGlobalContext()
+    
+        useEffect(() =>{
+          getIncomes()
+          getExpenses()
+        }, [])
 
     return (
         <DashboardStyled>
             <InnerLayout>
-            <h1>All Transactions</h1>
+                <h1>All Transactions</h1>
                 <div className="stats-con">
-                <div className="chart-con">
-                    {/* <Chart /> */}
+                    <div className="chart-con">
+                        <Chart />
+                        <div className="amount-con">
+                            <div className="income">
+                                <h2>Total Income</h2>
+                                <p>
+                                {financialIcons.dollar} {totalIncome}
+                                </p>
+                            </div>
+                            <div className="expense">
+                                <h2>Total Expense</h2>
+                                <p>
+                                {financialIcons.dollar} {totalExpense}
+                                </p>
+                            </div>
+                            <div className="balance">
+                                <h2>Total Balance</h2>
+                                <p>
+                                {financialIcons.dollar} {totalBalance}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="history-con">
+                        <History />
+                        <h2 className="salary-title">
+                            Min <span>Salary</span> Max
+                        </h2>
+                        <div className="salary-item">
+                            <p>
+                                {Math.min(...incomes.map(item => item.amount))}
+                            </p>
+                            <p>
+                                {Math.max(...incomes.map(item => item.amount))}
+                            </p>
+                        </div>
+                        <h2 className="salary-title">
+                            Min <span>Expense</span> Max
+                        </h2>
+                        <div className="salary-item">
+                        <p>
+                                {Math.min(...expenses.map(item => item.amount))}
+                            </p>
+                            <p>
+                                {Math.max(...expenses.map(item => item.amount))}
+                            </p>
+                        </div>
                 </div>
+
                 </div>
             </InnerLayout>
         </DashboardStyled>
