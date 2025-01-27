@@ -49,7 +49,8 @@ export const GlobalProvider = ({ children }: GlobalProviderProps) => {
   // Get incomes from the API and update state
   const getIncomes = useCallback(async () => {
     try {
-      const response = await axios.get(`${BASE_URL}get-income`);        console.log("Fetched incomes:", response.data);
+      const response = await axios.get(`${BASE_URL}get-income`);        
+      console.log("Fetched incomes:", response.data);
       setIncomes(response.data);
     } catch (err: any) {
       console.error("Error fetching incomes:", err);
